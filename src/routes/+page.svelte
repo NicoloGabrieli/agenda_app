@@ -25,7 +25,14 @@
       placeholder="Add a new agenda"
       on:keydown={(e) => e.key === 'Enter' && addAgenda()}
     />
-    <button class="add-button" type="button" on:click={addAgenda}>Add</button>
+<button
+  class="add-button"
+  type="button"
+  on:click={addAgenda}
+  disabled={!newAgenda.trim()}
+>
+  Add
+</button>
   </div>
 
   <ul class="agenda-list">
@@ -66,6 +73,10 @@
     cursor: pointer;
     margin-left: 8px;
   }
+  .add-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
   .agenda-list {
     list-style-type: none;
     padding: 0;
